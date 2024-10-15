@@ -7,7 +7,7 @@ export async function POST(request: Request) {
    try {
       const { username, code } = await request.json();
 
-      const decodedUsername = decodeURIComponent(username);//at this route the username is coming on the uri so decodeURIComponent is decoding it.
+      const decodedUsername = decodeURIComponent(username); //at this route the username is coming on the uri so decodeURIComponent is decoding it.
       const user = await UserModel.findOne({ username: decodedUsername });
 
       if (!user) {
@@ -26,6 +26,10 @@ export async function POST(request: Request) {
          user.isVerified = true;
          user.save();
       }
+      return Response.json({
+         succes: true,
+         message: "user verified successfully!",
+      });
    } catch (error) {
       return Response.json(
          {

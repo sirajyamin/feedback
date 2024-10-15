@@ -59,6 +59,6 @@ export async function GET() {
             message: "error while getting messages!",
          },
          { status: 404 }
-      );
+      ); 
    }
 }

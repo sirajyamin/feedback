@@ -7,7 +7,7 @@ export async function POST(request: Request) {
    await dbConnect();
    try {
       const { username, email, password } = await request.json();
-      const byUsername = await UserModel.findOne({ 
+      const byUsername = await UserModel.findOne({
          username,
          isVerified: true,
       });
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
       return Response.json(
          {
             success: true,
-            message: "Verification email sent successfully!",
+            message: "User Created Successfully!!",
          },
          { status: 200 }
       );

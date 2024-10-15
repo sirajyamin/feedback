@@ -15,6 +15,7 @@ export const sendVerificationEmail = async (
          subject: "Hello World",
          react: VerificationEmailTemplate({ username, otp }),
       });
+      console.log("Email", email);
       return {
          success: true,
          message: "Verification email sent successfully!",
